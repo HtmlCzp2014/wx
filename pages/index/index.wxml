@@ -1,0 +1,70 @@
+<!--index.wxml-->
+<view class="container">
+<view  style='' class='biaoti'>小药铺APP</view>
+<view class='a1'>
+  <view class='f1' bindtap='openditu'>广州</view>
+  <view class='f4'><image src='./images/search.jpg'></image><input placeholder='请搜索相关字词'></input></view>
+  <view bindtap='click' class='f1'><image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538195786550&di=1c34316a7ff1b75949c99034ef3b6cd9&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F01%2F41%2F51%2F69573d43b0b4ca1.jpg'></image></view>
+</view>
+  <view class='download' bindtap='down1'>wx.downloadFile</view>
+  <view class='video1'>
+    <video id='video1'  controls='controls' loop='loop' src='{{video1}}'></video>
+  </view>
+  <view class='icon1'>
+    <image bindtap='chooseIcon' src='{{icon1}}'></image>
+    please choose your icon
+  </view>
+  <view class='section'>
+    <view class='section_title'>flex-direction:column</view>
+    <view class='flex-wrp' style='flex-direction:row'>
+      <view bindtap='changeMV1' class='flex-item bc_green'>1</view>
+      <view bindtap='changeMV2' class='flex-item bc_red'>2</view>
+      <view bindtap='changeMV3' class='flex-item bc_blue'>3</view>      
+    </view>
+  </view>
+</view>
+<view class="section">
+  <view class="section__title">vertical scroll</view>
+  <scroll-view scroll-y style="height: 200px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view id="green" class="scroll-view-item bc_green"></view>
+    <view id="red"  class="scroll-view-item bc_red"></view>
+    <view id="yellow" class="scroll-view-item bc_yellow">
+      <image src='{{icon1}}'></image>
+    </view>
+    <view id="blue" class="scroll-view-item bc_blue">
+    </view>
+  </scroll-view>
+
+  <view class="btn-area">
+    <button size="mini" bindtap="tap">click me to scroll into view </button>
+    <button size="mini" bindtap="tapMove">click me to scroll</button>
+  </view>
+</view>
+<view class="section section_gap">
+  <view class="section__title">horizontal scroll</view>
+  <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+    <view id="green" class="scroll-view-item_H bc_green"></view>
+    <view id="red"  class="scroll-view-item_H bc_red"></view>
+    <view id="yellow" class="scroll-view-item_H bc_yellow"></view>
+    <view id="blue" class="scroll-view-item_H bc_blue"></view>
+  </scroll-view>
+</view>
+
+<view class='banner'>
+<text>lunbo</text>
+<swiper style='padding:30px 0;' indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image  src="{{item}}" class="slide-image" style='width:100%' height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+
+<view>
+  <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 500px;"></camera>
+<button type="primary" bindtap="takePhoto">拍照</button>
+<view>预览</view>
+<image mode="widthFix" src="{{src}}"></image>
+</view>
